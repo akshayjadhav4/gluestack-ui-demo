@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.5",
+    "axios": "^1.4.0",
     "expo": "~48.0.15",
     "expo-constants": "~14.2.1",
     "expo-linking": "~4.0.1",
