@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { getAllPokemons } from "../api";
+import { Box } from "../gluestack-ui-comp";
 export default function Home() {
   const {
     data: allPokemons,
@@ -29,7 +30,9 @@ export default function Home() {
   }
   return (
     <View style={styles.container}>
-      <Text>Expo Router Setup</Text>
+      <Box bgColor="$rose400">
+        <Text>Expo Router Setup</Text>
+      </Box>
       <Link href={"/details"}>Go To Details</Link>
       <StatusBar style="auto" />
     </View>
