@@ -2,8 +2,11 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
+
 import { getAllPokemons } from "../api";
 import { Box } from "../gluestack-ui-comp";
+import HomeLoadingSkeleton from "../components/Home/HomeLoadingSkeleton";
+
 export default function Home() {
   const {
     data: allPokemons,
@@ -15,11 +18,7 @@ export default function Home() {
   });
 
   if (isAllPokemonslistLoading) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading</Text>
-      </View>
-    );
+    return <HomeLoadingSkeleton />;
   }
   if (isAllPokemonsGetError) {
     return (
