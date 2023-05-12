@@ -2,7 +2,11 @@ import { Stack } from "expo-router";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { GluestackUIProvider } from "../gluestack-ui-comp";
 import { config } from "../gluestack-ui.config";
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: { staleTime: 600000 },
+  },
+});
 export default function Layout() {
   return (
     <QueryClientProvider client={queryClient}>

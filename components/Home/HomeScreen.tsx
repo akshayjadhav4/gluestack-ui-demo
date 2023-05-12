@@ -3,10 +3,15 @@ import React from "react";
 
 import { Box, Text } from "../../gluestack-ui-comp";
 import SearchInput from "./SearchInput";
+import { FlashList } from "@shopify/flash-list";
+import { AllPokemon } from "../../types";
+import PokemonCard from "./PokemonCard/Index";
 
-interface HomeScreenProps {}
+interface HomeScreenProps {
+  allPokemons: AllPokemon;
+}
 
-const HomeScreen: React.FC<HomeScreenProps> = () => {
+const HomeScreen: React.FC<HomeScreenProps> = ({ allPokemons }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Box flex={1} width={"$full"} padding={"$5"} mb={"$1.5"}>
@@ -18,6 +23,15 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
           more!
         </Text>
         <SearchInput />
+        <FlashList
+          data={allPokemons?.results}
+          renderItem={({ item, index }) => (
+            <PokemonCard item={item} index={index} />
+          )}
+          estimatedItemSize={128}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+        />
       </Box>
     </SafeAreaView>
   );

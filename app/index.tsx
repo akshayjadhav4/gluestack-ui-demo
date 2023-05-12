@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 
 import { getAllPokemons } from "../api";
@@ -26,7 +25,7 @@ export default function Home() {
       </View>
     );
   }
-  return <HomeScreen />;
+  return <HomeScreen allPokemons={allPokemons} />;
 }
 
 const styles = StyleSheet.create({

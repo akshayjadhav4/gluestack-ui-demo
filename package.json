@@ -28,7 +28,9 @@
     "react-native-web": "~0.18.10",
     "@gluestack-ui/icon": "latest",
     "react-native-svg": "latest",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "@shopify/flash-list": "1.4.0",
+    "expo-dev-client": "~2.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
