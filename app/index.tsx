@@ -1,11 +1,10 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 
 import { getAllPokemons } from "../api";
-import { Box } from "../gluestack-ui-comp";
 import HomeLoadingSkeleton from "../components/Home/HomeLoadingSkeleton";
+import HomeScreen from "../components/Home/HomeScreen";
 
 export default function Home() {
   const {
@@ -27,15 +26,7 @@ export default function Home() {
       </View>
     );
   }
-  return (
-    <View style={styles.container}>
-      <Box bgColor="$rose400">
-        <Text>Expo Router Setup</Text>
-      </Box>
-      <Link href={"/details"}>Go To Details</Link>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <HomeScreen />;
 }
 
 const styles = StyleSheet.create({
