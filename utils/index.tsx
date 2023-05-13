@@ -7,6 +7,11 @@ import {
   Bug,
   LucideIcon,
   Bomb,
+  Component,
+  Zap,
+  Globe2,
+  Brain,
+  Hammer,
 } from "lucide-react-native";
 
 export const getIcon = (name: string): LucideIcon => {
@@ -23,6 +28,16 @@ export const getIcon = (name: string): LucideIcon => {
       return Droplets;
     case "bug":
       return Bug;
+    case "normal":
+      return Component;
+    case "electric":
+      return Zap;
+    case "ground":
+      return Globe2;
+    case "psychic":
+      return Brain;
+    case "fighting":
+      return Hammer;
     default:
       return Bomb;
   }
@@ -37,13 +52,23 @@ export const getColor = (name: string): string => {
     case "grass":
       return "$green600";
     case "poison":
-      return "$purple500";
+      return "$purple900";
     case "water":
       return "$blue600";
     case "bug":
       return "$green800";
+    case "normal":
+      return "$amber800";
+    case "electric":
+      return "$yellow500";
+    case "ground":
+      return "$teal700";
+    case "psychic":
+      return "$pink800";
+    case "fighting":
+      return "$emerald800";
     default:
-      return "$info100";
+      return "$warning700";
   }
 };
 
@@ -61,7 +86,17 @@ export const getPokemonTheme = (name: string): string => {
       return "$lightBlue500";
     case "bug":
       return "$lime500";
+    case "normal":
+      return "$amber300";
+    case "electric":
+      return "$yellow300";
+    case "ground":
+      return "$teal300";
+    case "psychic":
+      return "$pink300";
+    case "fighting":
+      return "$emerald500";
     default:
-      return "$info100";
+      return "$warning200";
   }
 };

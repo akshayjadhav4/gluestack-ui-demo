@@ -79,7 +79,11 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
               flexDirection="row"
               mb={"$2"}
             >
-              <Icon as={getIcon(type?.name)} color={getColor(type?.name)} />
+              <Icon
+                size="sm"
+                as={getIcon(type?.name)}
+                color={getColor(type?.name)}
+              />
               <Text
                 size="sm"
                 ml={"$0.5"}
