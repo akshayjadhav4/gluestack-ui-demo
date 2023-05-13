@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 
 import { getAllPokemons } from "../api";
-import HomeLoadingSkeleton from "../components/Home/HomeLoadingSkeleton";
+import HomeLoadingSkeleton from "../components/Home/Loading";
 import HomeScreen from "../components/Home/HomeScreen";
 
 export default function Home() {

@@ -2,7 +2,7 @@ import { SafeAreaView, StyleSheet } from "react-native";
 import React from "react";
 
 import { Box, Text } from "../../gluestack-ui-comp";
-import SearchInput from "./SearchInput";
+import SearchInput from "./Search";
 import { FlashList } from "@shopify/flash-list";
 import { AllPokemon } from "../../types";
 import PokemonCard from "./PokemonCard/Index";

@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput } from "react-native";
 import React from "react";
-import { Box, HStack, Icon } from "../../gluestack-ui-comp";
+import { Box, HStack, Icon } from "../../../gluestack-ui-comp";
 import { Filter, Search } from "lucide-react-native";
 
 const SearchInput = () => {
