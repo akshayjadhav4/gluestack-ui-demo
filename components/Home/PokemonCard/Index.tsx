@@ -66,7 +66,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
           {data?.name}
         </Text>
         <Text size="lg" color="$light50">
-          #{data?.order}
+          #{data?.id}
         </Text>
       </Box>
       <Box flexDirection="row" justifyContent="space-between" flex={1}>

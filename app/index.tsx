@@ -1,31 +1,35 @@
 import { StyleSheet, Text, View } from "react-native";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
-import { getAllPokemons } from "../api";
+import { getPokemons } from "../api";
 import HomeLoadingSkeleton from "../components/Home/Loading";
 import HomeScreen from "../components/Home/HomeScreen";
 
 export default function Home() {
-  const {
-    data: allPokemons,
-    isLoading: isAllPokemonslistLoading,
-    isError: isAllPokemonsGetError,
-  } = useQuery({
-    queryKey: ["pokelist"],
-    queryFn: getAllPokemons,
+  const { data, status, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: ["pokemonslist"],
+    queryFn: getPokemons,
+    getNextPageParam: (lastPage, pages) =>
+      lastPage.next !== null ? lastPage.next : lastPage,
   });
 
-  if (isAllPokemonslistLoading) {
+  if (status === "loading") {
     return <HomeLoadingSkeleton />;
   }
-  if (isAllPokemonsGetError) {
+  if (status === "error") {
     return (
       <View style={styles.container}>
         <Text>Error</Text>
       </View>
     );
   }
-  return <HomeScreen allPokemons={allPokemons} />;
+  return (
+    <HomeScreen
+      allPokemons={data?.pages}
+      fetchNextPage={fetchNextPage}
+      hasNextPage={hasNextPage}
+    />
+  );
 }
 
 const styles = StyleSheet.create({

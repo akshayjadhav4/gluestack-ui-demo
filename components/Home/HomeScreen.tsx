@@ -8,10 +8,19 @@ import { AllPokemon } from "../../types";
 import PokemonCard from "./PokemonCard/Index";
 
 interface HomeScreenProps {
-  allPokemons: AllPokemon;
+  allPokemons: AllPokemon[];
+  fetchNextPage: any;
+  hasNextPage: boolean | undefined;
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ allPokemons }) => {
+const HomeScreen: React.FC<HomeScreenProps> = ({
+  allPokemons,
+  fetchNextPage,
+  hasNextPage,
+}) => {
+  const results = allPokemons
+    ? allPokemons?.flatMap((data) => data?.results)
+    : [];
   return (
     <SafeAreaView style={styles.container}>
       <Box flex={1} width={"$full"} padding={"$5"} mb={"$1.5"}>
@@ -24,13 +33,20 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ allPokemons }) => {
         </Text>
         <SearchInput />
         <FlashList
-          data={allPokemons?.results}
+          data={results}
           renderItem={({ item, index }) => (
             <PokemonCard item={item} index={index} />
           )}
+          keyExtractor={({ name }) => name}
           estimatedItemSize={128}
           numColumns={2}
           showsVerticalScrollIndicator={false}
+          onEndReachedThreshold={0.2}
+          onEndReached={() => {
+            if (hasNextPage) {
+              fetchNextPage();
+            }
+          }}
         />
       </Box>
     </SafeAreaView>
