@@ -6,58 +6,13 @@ import { useQuery } from "@tanstack/react-query";
 import { getPokemonDetails } from "../../../api";
 import LoadingSkeleton from "./LoadingSkeleton";
 import { SvgUri } from "react-native-svg";
-import {
-  Flame,
-  Feather,
-  Trees,
-  Biohazard,
-  Droplets,
-  Bug,
-  LucideIcon,
-  Bomb,
-} from "lucide-react-native";
+import { getColor, getIcon, getPokemonTheme } from "../../../utils";
+
 interface PokemonCardProps {
   item: Result;
   index: number;
 }
 
-const getIcon = (name: string): LucideIcon => {
-  switch (name) {
-    case "fire":
-      return Flame;
-    case "flying":
-      return Feather;
-    case "grass":
-      return Trees;
-    case "poison":
-      return Biohazard;
-    case "water":
-      return Droplets;
-    case "bug":
-      return Bug;
-    default:
-      return Bomb;
-  }
-};
-
-const getColor = (name: string): string => {
-  switch (name) {
-    case "fire":
-      return "$orange500";
-    case "flying":
-      return "$blue400";
-    case "grass":
-      return "$lime500";
-    case "poison":
-      return "$purple500";
-    case "water":
-      return "$blue600";
-    case "bug":
-      return "$green800";
-    default:
-      return "$info100";
-  }
-};
 const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
   const url = item?.url;
   const lastIndex = url.lastIndexOf("/");
@@ -90,7 +45,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
       height={"$32"}
       flex={1}
       borderRadius={"$xl"}
-      bgColor="$info100"
+      bgColor={getPokemonTheme(data?.types[0]?.type?.name)}
       mb={"$2.5"}
       mr={index % 2 === 0 ? "$2.5" : "$0"}
       py={"$3"}
@@ -102,10 +57,17 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
         mb={"$1.5"}
         px={"$2"}
       >
-        <Text size="lg" textTransform="capitalize" fontWeight="$bold">
+        <Text
+          size="lg"
+          color="$light50"
+          textTransform="capitalize"
+          fontWeight="$bold"
+        >
           {data?.name}
         </Text>
-        <Text size="lg">#{data?.order}</Text>
+        <Text size="lg" color="$light50">
+          #{data?.order}
+        </Text>
       </Box>
       <Box flexDirection="row" justifyContent="space-between" flex={1}>
         <Box flex={1} pl={"$2"} pr={"$1.5"}>
@@ -121,6 +83,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
               <Text
                 size="sm"
                 ml={"$0.5"}
+                color="$light50"
                 textTransform="capitalize"
                 fontWeight="$semibold"
               >
