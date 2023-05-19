@@ -1,9 +1,8 @@
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, FlatList } from "react-native";
 import React from "react";
 
 import { Box, Text } from "../../gluestack-ui-comp";
 import SearchInput from "./Search";
-import { FlashList } from "@shopify/flash-list";
 import { AllPokemon } from "../../types";
 import PokemonCard from "./PokemonCard/Index";
 
@@ -32,13 +31,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
           more!
         </Text>
         <SearchInput />
-        <FlashList
+        <FlatList
           data={results}
           renderItem={({ item, index }) => (
             <PokemonCard item={item} index={index} />
           )}
           keyExtractor={({ name }) => name}
-          estimatedItemSize={128}
           numColumns={2}
           showsVerticalScrollIndicator={false}
           onEndReachedThreshold={0.2}
