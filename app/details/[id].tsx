@@ -1,6 +1,8 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import React from "react";
 import { useRouter, useSearchParams } from "expo-router";
+import { Box } from "../../gluestack-ui-comp";
+import Header from "../../components/Details/Header";
 
 type Props = {};
 
@@ -8,15 +10,16 @@ const Details = (props: Props) => {
   const router = useRouter();
   const { id } = useSearchParams();
   return (
-    <View style={styles.container}>
-      <Text>Details {id}</Text>
-      <Button
-        onPress={() => {
-          router.back();
-        }}
-        title="Go Back"
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Box flex={1} width={"$full"} padding={"$5"} mb={"$1.5"}>
+        <Header
+          id={id as string}
+          back={() => {
+            router.back();
+          }}
+        />
+      </Box>
+    </SafeAreaView>
   );
 };
 

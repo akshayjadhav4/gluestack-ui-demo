@@ -100,3 +100,16 @@ export const getPokemonTheme = (name: string): string => {
       return "$warning200";
   }
 };
+
+export const getFormattedId = (id: string) => {
+  if (id) {
+    if (id.length === 1) {
+      return `#00${id}`;
+    } else if (id.length === 2) {
+      return `#0${id}`;
+    } else {
+      return id;
+    }
+  }
+  return "#000";
+};
