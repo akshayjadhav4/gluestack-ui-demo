@@ -22,7 +22,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
   const pokemonNumber = url.substring(secondLastIndex);
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["pokemon", url],
+    queryKey: ["pokemon", pokemonNumber],
     queryFn: () => getPokemonDetails(`/pokemon${pokemonNumber}`),
     enabled: item !== null,
   });
