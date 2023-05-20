@@ -16,7 +16,7 @@ const Details = (props: Props) => {
   return (
     <Box style={styles.container}>
       <GradientBG ability="psychic" />
-      <Box flex={1} width={"$full"}>
+      <Box flex={1} width={"$full"} p={"$5"}>
         <Box paddingTop={top}>
           <Header
             id={id as string}

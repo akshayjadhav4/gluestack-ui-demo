@@ -11,7 +11,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ id, back }) => {
   return (
-    <HStack alignItems="center" justifyContent="space-between" p={"$5"}>
+    <HStack alignItems="center" justifyContent="space-between">
       <Pressable onPress={back}>
         <Icon size="lg" as={ArrowLeft} color="$muted900" />
       </Pressable>
