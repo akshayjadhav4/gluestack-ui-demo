@@ -11,11 +11,11 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ id, back }) => {
   return (
-    <HStack alignItems="center" justifyContent="space-between">
+    <HStack alignItems="center" justifyContent="space-between" p={"$5"}>
       <Pressable onPress={back}>
         <Icon size="lg" as={ArrowLeft} color="$muted900" />
       </Pressable>
-      <Text fontSize={"$xl"} fontWeight="$semibold">
+      <Text fontSize={"$xl"} fontWeight="$semibold" color="$muted900">
         {getFormattedId(id as string)}
       </Text>
       <Icon size="lg" as={Heart} color="$muted900" />

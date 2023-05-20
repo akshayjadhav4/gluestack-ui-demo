@@ -101,6 +101,35 @@ export const getPokemonTheme = (name: string): string => {
   }
 };
 
+export const geColorValuesForGradient = (name: string): string => {
+  switch (name) {
+    case "fire":
+      return "#fb923c";
+    case "flying":
+      return "#60a5fa";
+    case "grass":
+      return "#4ade80";
+    case "poison":
+      return "#a855f7";
+    case "water":
+      return "#0ea5e9";
+    case "bug":
+      return "#84cc16";
+    case "normal":
+      return "#fcd34d";
+    case "electric":
+      return "#fde047";
+    case "ground":
+      return "#5eead4";
+    case "psychic":
+      return "#f9a8d4";
+    case "fighting":
+      return "#10b981";
+    default:
+      return "#fed7aa";
+  }
+};
+
 export const getFormattedId = (id: string) => {
   if (id) {
     if (id.length === 1) {
