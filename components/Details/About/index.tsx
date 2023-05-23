@@ -19,7 +19,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ abilities, height, weight, types }) => {
   return (
-    <ScrollView>
+    <Box bgColor="$white" flex={1}>
       <HStack
         mx={"$8"}
         my={"$6"}
@@ -84,7 +84,7 @@ const About: React.FC<AboutProps> = ({ abilities, height, weight, types }) => {
           </>
         ) : null}
       </Box>
-    </ScrollView>
+    </Box>
   );
 };
 

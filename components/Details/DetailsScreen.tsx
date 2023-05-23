@@ -1,4 +1,4 @@
-import { StyleSheet, useWindowDimensions } from "react-native";
+import { useWindowDimensions } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { Box, Text } from "../../gluestack-ui-comp";
@@ -12,6 +12,7 @@ import About from "./About";
 import Stats from "./Stats";
 import Moves from "./Moves";
 import Evolutions from "./Evolutions";
+import { ScrollView } from "react-native";
 interface DetailsScreenProps {
   data: Pokemon;
   id: string;
@@ -45,10 +46,13 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ({ data, id }) => {
   });
 
   return (
-    <Box style={styles.container}>
-      <GradientBG ability={data?.types[0]?.type?.name ?? ""} />
-      <Box flex={1} width={"$full"} pt={"$5"}>
-        <Box paddingTop={top} px={"$5"}>
+    <ScrollView
+      contentContainerStyle={{ flexGrow: 1 }}
+      showsVerticalScrollIndicator={false}
+    >
+      <Box>
+        <GradientBG ability={data?.types[0]?.type?.name ?? ""} />
+        <Box paddingTop={top + 20} px={"$5"}>
           <Header
             id={id as string}
             back={() => {
@@ -82,46 +86,40 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ({ data, id }) => {
             {data?.types[0]?.type?.name} Pokémon
           </Text>
         </Box>
-        {/* Tabs Start */}
-        <TabView
-          renderTabBar={(props) => (
-            <TabBar
-              {...props}
-              indicatorStyle={{
-                backgroundColor: "#000000",
-              }}
-              style={{ backgroundColor: "#ffffff" }}
-              renderLabel={({ route, focused }) => (
-                <Text
-                  style={{
-                    color: focused ? "#000000" : "#a1a1aa",
-                    fontSize: 15,
-                    fontWeight: "700",
-                    textTransform: "capitalize",
-                  }}
-                >
-                  {route.title}
-                </Text>
-              )}
-            />
-          )}
-          navigationState={{ index, routes }}
-          renderScene={renderScene}
-          onIndexChange={setIndex}
-          initialLayout={{ width: layout.width }}
-        />
-        {/* Tabs End */}
       </Box>
-    </Box>
+      {/* Tabs Start */}
+      <TabView
+        renderTabBar={(props) => (
+          <TabBar
+            {...props}
+            indicatorStyle={{
+              backgroundColor: "#000000",
+            }}
+            style={{ backgroundColor: "#ffffff" }}
+            renderLabel={({ route, focused }) => (
+              <Text
+                style={{
+                  color: focused ? "#000000" : "#a1a1aa",
+                  fontSize: 15,
+                  fontWeight: "700",
+                  textTransform: "capitalize",
+                }}
+              >
+                {route.title}
+              </Text>
+            )}
+          />
+        )}
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: layout.width }}
+        // To make react-native-tab-view scrollable
+        style={{ height: layout.height }}
+      />
+      {/* Tabs End */}
+    </ScrollView>
   );
 };
 
 export default DetailsScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
