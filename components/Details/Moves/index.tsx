@@ -1,20 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Move } from "../../../types";
+import { Box, Text } from "../../../gluestack-ui-comp";
 
-type Props = {};
+interface MovesProps {
+  moves: Move[];
+}
 
-const Moves = (props: Props) => {
+const Moves: React.FC<MovesProps> = ({ moves }) => {
   return (
-    <View style={styles.container}>
-      <Text>Moves</Text>
-    </View>
+    <Box bgColor="$white" flex={1} px="$8" py="$2.5">
+      {moves?.slice(0, 10)?.map(({ move }) => (
+        <Box py="$2.5" borderBottomColor="$dark700" borderBottomWidth={"$1"}>
+          <Text textTransform="capitalize" fontWeight="$medium">
+            {move.name}
+          </Text>
+        </Box>
+      ))}
+    </Box>
   );
 };
 
 export default Moves;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
