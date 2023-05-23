@@ -40,7 +40,7 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ({ data, id }) => {
         types={data?.types}
       />
     ),
-    stats: Stats,
+    stats: () => <Stats stats={data?.stats} />,
     moves: Moves,
     evolutions: Evolutions,
   });
