@@ -142,3 +142,13 @@ export const getFormattedId = (id: string) => {
   }
   return "#000";
 };
+
+export const hectogramsToKilograms = (weight: number): number => {
+  const kilograms = weight / 10;
+  return kilograms;
+};
+
+export const decimetersToCentimeters = (height: number): number => {
+  const centimeters = height * 10;
+  return centimeters;
+};

@@ -1,4 +1,4 @@
-import { StyleSheet, View, useWindowDimensions } from "react-native";
+import { StyleSheet, useWindowDimensions } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { Box, Text } from "../../gluestack-ui-comp";
@@ -13,7 +13,7 @@ import Stats from "./Stats";
 import Moves from "./Moves";
 import Evolutions from "./Evolutions";
 interface DetailsScreenProps {
-  data: Pokemon | undefined;
+  data: Pokemon;
   id: string;
 }
 
@@ -31,7 +31,14 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ({ data, id }) => {
   ]);
 
   const renderScene = SceneMap({
-    about: () => <About abilities={data?.abilities} />,
+    about: () => (
+      <About
+        abilities={data?.abilities}
+        weight={data?.weight}
+        height={data?.height}
+        types={data?.types}
+      />
+    ),
     stats: Stats,
     moves: Moves,
     evolutions: Evolutions,
