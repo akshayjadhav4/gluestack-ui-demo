@@ -5,6 +5,7 @@ import { Box, Text } from "../../gluestack-ui-comp";
 import { useQuery } from "@tanstack/react-query";
 import { getPokemonDetails } from "../../api";
 import DetailsScreen from "../../components/Details/DetailsScreen";
+import LoadingScreen from "../../components/Details/LoadingScreen";
 
 type Props = {};
 
@@ -17,11 +18,7 @@ const Details = (props: Props) => {
   });
 
   if (isLoading) {
-    return (
-      <Box style={styles.container}>
-        <Text>Loading</Text>
-      </Box>
-    );
+    return <LoadingScreen />;
   }
   if (isError) {
     return (
