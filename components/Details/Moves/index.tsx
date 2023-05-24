@@ -10,9 +10,14 @@ const Moves: React.FC<MovesProps> = ({ moves }) => {
   return (
     <Box bgColor="$white" flex={1} px="$8" py="$2.5">
       {moves?.slice(0, 10)?.map(({ move }) => (
-        <Box py="$2.5" borderBottomColor="$dark700" borderBottomWidth={"$1"}>
+        <Box
+          key={move?.name}
+          py="$2.5"
+          borderBottomColor="$dark700"
+          borderBottomWidth={"$1"}
+        >
           <Text textTransform="capitalize" fontWeight="$medium">
-            {move.name}
+            {move?.name}
           </Text>
         </Box>
       ))}

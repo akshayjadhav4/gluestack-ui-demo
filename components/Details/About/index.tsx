@@ -48,6 +48,7 @@ const About: React.FC<AboutProps> = ({ abilities, height, weight, types }) => {
           <HStack my="$5" px="$5" alignItems="center" space="md">
             {types?.map(({ type }) => (
               <Box
+                key={type?.name}
                 height={"$8"}
                 width={"$8"}
                 borderRadius={"$full"}
