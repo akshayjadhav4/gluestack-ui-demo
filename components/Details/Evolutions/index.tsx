@@ -55,7 +55,7 @@ const renderRecursive = (data: any) => {
   }
 
   return (
-    <Box width={"$full"} alignItems="center">
+    <Box width={"$full"} alignItems="center" key={data?.id}>
       <Box
         alignItems="center"
         p={"$10"}
