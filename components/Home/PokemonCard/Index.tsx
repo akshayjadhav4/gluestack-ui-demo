@@ -50,7 +50,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
       }}
     >
       <Box
-        height={"$32"}
+        // height={"$32"}
         flex={1}
         borderRadius={"$xl"}
         bgColor={getPokemonTheme(data?.types[0]?.type?.name)}
@@ -112,6 +112,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ item, index }) => {
                     uri: data?.sprites.other?.dream_world?.front_default,
                   }}
                   style={styles.image}
+                  resizeMode="contain"
                 />
               ) : (
                 <Box height={"$16"} width={"$16"} alignSelf="flex-end">
