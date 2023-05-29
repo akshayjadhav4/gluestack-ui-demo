@@ -7,7 +7,8 @@ Created UI with gluestack and dank-styles for Web and Mobile App
 3. [Dank Style](https://www.dank.style/)
 4. Expo Router
 
-
+## API 
+https://pokeapi.co/
 
 
 
@@ -22,4 +23,8 @@ Created UI with gluestack and dank-styles for Web and Mobile App
 |<img width="478" alt="About App" src="https://github.com/akshayjadhav4/gluestack-ui-demo/assets/34000732/61d7ef99-09c2-42f7-9562-c4874a2afde0">|<img width="612" alt="About Web" src="https://github.com/akshayjadhav4/gluestack-ui-demo/assets/34000732/e1c167db-650d-4209-85e4-6f73e9ac4555">|
 |<img width="478" alt="Stat App" src="https://github.com/akshayjadhav4/gluestack-ui-demo/assets/34000732/e5a8de2d-7b92-4109-9d23-ab2758a078cb">|<img width="612" alt="Stat Web" src="https://github.com/akshayjadhav4/gluestack-ui-demo/assets/34000732/f16b7a6a-35d5-46e1-b6de-75e97d1a2b2a">|
 |<img width="478" alt="Evo App" src="https://github.com/akshayjadhav4/gluestack-ui-demo/assets/34000732/4c04b542-c381-4d02-8e3c-d177457632f3">|<img width="612" alt="Evo Web" src="https://github.com/akshayjadhav4/gluestack-ui-demo/assets/34000732/f8accdf1-9445-4a56-af53-a132a102c51b">|
+
+
+## UI Insperation Credit
+[Simone Cavallini - Pokedex App — Case Study](https://www.behance.net/gallery/158115601/Pokedex-App-Case-Study?tracking_source=search_projects%7CPokedex)
 
