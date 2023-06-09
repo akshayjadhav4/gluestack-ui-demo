@@ -1,10 +1,10 @@
 # gluestack-ui-demo
-Created UI with gluestack and dank-styles for Web and Mobile App
+Created UI with gluestack and gluestack-style for Web and Mobile App
 
 ## Tech Stack
 1. React Native Expo
 2. [Gluestack](https://ui.gluestack.io/)
-3. [gluestack-style](https://style.gluestack.io/)
+3. [Gluestack Style](https://style.gluestack.io/)
 4. Expo Router
 
 ## API 
