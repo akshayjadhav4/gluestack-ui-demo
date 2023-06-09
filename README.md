@@ -3,7 +3,7 @@ Created UI with gluestack and gluestack-style for Web and Mobile App
 
 ## Tech Stack
 1. React Native Expo
-2. [Gluestack](https://ui.gluestack.io/)
+2. [Gluestack UI](https://ui.gluestack.io/)
 3. [Gluestack Style](https://style.gluestack.io/)
 4. Expo Router
 
